@@ -64,8 +64,10 @@ const playMusic = (index,pause = false) => {
 }
 
 
-async function displayAlbums() 
-{
+async function displayAlbums() {
+
+    // let a = await fetch("https://student-isahil.github.io/spotify-clone/songs/");
+
     let a = await fetch("songs/")
     let response = await a.text();
     let div = document.createElement("div")
@@ -73,27 +75,27 @@ async function displayAlbums()
     let anchors = div.getElementsByTagName("a")
     let array = Array.from(anchors)
     let cardContainer = document.querySelector(".cardContainer")
+    
     for (let index = 0; index < array.length; index++) {
         const e = array[index]; 
         if (e.href.includes("/songs") && !e.href.includes(".htaccess")) {
             let folder = e.href.split("/").slice(-2)[0]
-            
+
             // Get the metadata of the folder
-            let a = await fetch(`https://student-isahil.github.io/spotify-clone/songs/${folder}/info.json`)
-            let response = await a.json(); 
-            cardContainer.innerHTML += ` <div data-folder="${folder}" class="card">
-            <div class="play">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
-                        stroke-linejoin="round" />
-                </svg>
-            </div>
-           
-            <img src="${response.cover}" alt="">
-            <h2>${response.title}</h2>
-            <p>${response.description}</p>
-        </div>`
+            let albumInfo = await fetch(`https://student-isahil.github.io/spotify-clone/songs/${folder}/info.json`)
+            let albumData = await albumInfo.json(); // Use albumData instead of response
+            
+            cardContainer.innerHTML += ` 
+            <div data-folder="${folder}" class="card">
+                <div class="play">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <img src="${albumData.cover}" alt="Album Cover">
+                <h2>${albumData.title}</h2>
+                <p>${albumData.description}</p>
+            </div>`;
         }
     }
 
@@ -106,10 +108,10 @@ async function displayAlbums()
     })
 }
 
+
 async function main() {
     // Get the list of all the songs
     await getSongs("songs/ncs")
-    // playMusic(songs[0], true)
 
     playMusic(0,true)
 
@@ -196,6 +198,9 @@ async function main() {
         }
 
     })
+
+  
+
 
 }
 
