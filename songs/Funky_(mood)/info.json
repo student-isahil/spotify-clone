@@ -2,5 +2,12 @@
 
 {
     "title": "Go Funky",
-    "description": "Lets go Funky"
+    "description": "Lets go Funky",
+    "cover": "https://res.cloudinary.com/darj9wemb/image/upload/v1746117221/cover_tuddof.jpg",
+    "songs": [
+    {
+        "title": "Ik Vaari Aa",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746178008/Raabta_-_Ik_Vaari_Aa_nvcxtv.mp3"
+    }
+  ]
 }

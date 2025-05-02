@@ -2,5 +2,16 @@
 
 {
     "title": "Dark Horse",
-    "description": "Dark Songs for you"
+    "description": "Dark Songs for you",
+    "cover": "https://res.cloudinary.com/darj9wemb/image/upload/v1746117219/cover_j6dk4l.jpg",
+    "songs": [
+    {
+        "title": "Teri Jhuki Nazar",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746117224/Teri_Jhuki_Nazar_qtbfjo.mp3"
+    },
+    {
+        "title": "Long Time No See",
+        "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746117221/Long_Time_No_See_afdcsy.mp3"
+    }
+  ]
 }

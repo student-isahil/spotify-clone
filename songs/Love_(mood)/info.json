@@ -2,5 +2,12 @@
 
 {
     "title": "I Love You",
-    "description": "Love is in the air"
+    "description": "Love is in the air",
+    "cover": "https://res.cloudinary.com/darj9wemb/image/upload/v1746117222/cover_k8befm.jpg",
+    "songs": [
+    {
+        "title": "Main Tera Boyfriend",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746178083/Raabta_-_Main_Tera_Boyfriend_okals5.mp3"
+    }
+  ]
 }

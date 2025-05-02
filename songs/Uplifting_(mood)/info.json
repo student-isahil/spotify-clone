@@ -2,5 +2,16 @@
 
 {
     "title": "Get up",
-    "description": "You can do it!"
+    "description": "You can do it!",
+    "cover": "https://i.scdn.co/image/ab67706f00000002dcb7b32f8bf2e6a7851245e3",
+    "songs": [
+    {
+        "title": "Tera Ban Jaunga",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746117233/Tera_Ban_Jaunga_-_Kabir_Singh_2019_fqxdsi.mp3"
+    },
+    {
+        "title": "Ishq Bulaava",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746117234/Ishq_Bulaava_je7pbr.mp3"
+    }
+  ]
 }

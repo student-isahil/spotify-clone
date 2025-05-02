@@ -2,5 +2,16 @@
 
 {
     "title": "Bright Songs",
-    "description": "Bright Songs for you"
+    "description": "Bright Songs for you",
+    "cover": "https://res.cloudinary.com/darj9wemb/image/upload/v1746117212/cover_wpkb2l.jpg",
+    "songs": [
+    {
+        "title": "Meri Aashiqui",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746117220/Meri_Aashiqui_z0wmkx.mp3"
+    },
+    {
+      "title": "Jab Tak",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746177529/MSDhoni_-_Jab_Tak_geysok.mp3"
+    }
+  ]
 }

@@ -2,5 +2,24 @@
 
 {
     "title": "Angry Mood",
-    "description": "Calm your Anger"
+    "description": "Calm your Anger",
+    "cover": "https://res.cloudinary.com/darj9wemb/image/upload/v1746117211/cover_qbkzw9.jpg",
+    "songs": [
+    {
+      "title": "Duniyaa",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746117213/Duniyaa_kjnpri.mp3"
+    },
+    {
+      "title": "Kaise Hua",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746117214/Kaise_Hua_qbptng.mp3"
+    },
+    {
+      "title": "Main Agar Kahoon",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746117215/Main_Agar_Kahoon_sagkdf.mp3"
+    },
+    {
+      "title": "Mann Mera",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746177392/Mann_Mera_Table_No.21_-_amlijatt.in_o5hu6j.mp3"
+    }
+  ]
 }

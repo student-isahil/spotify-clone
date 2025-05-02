@@ -1,5 +1,16 @@
 
 {
-    "title": "No Copyright Songs",
-    "description": "Songs for you"
+    "title": "Copyright Songs",
+    "description": "Songs for you",
+    "cover":"https://i.scdn.co/image/ab67616d00001e02521df9b92787954f8f0f5e3f",
+    "songs": [
+    {
+        "title": "Nadaaniya",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746117225/Galatfehmi_Nadaaniyan_ahs0gm.mp3"
+    },
+    {
+        "title": "Kaise Mujhe ",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746117225/Kaise_Mujhe_Ghajini_ocrvxi.mp3"
+    }
+    ]
 }

@@ -2,5 +2,20 @@
 
 {
     "title": "Diljit Dosanjh",
-    "description": "Diljit Dosanjh hits"
+    "description": "Diljit Dosanjh hits",
+    "cover": "https://res.cloudinary.com/darj9wemb/image/upload/v1746117220/cover_uamycf.jpg",
+    "songs": [
+    {
+        "title": "Tum Jo Aye",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746177842/OUATIM-Tum_Jo_Aaye_c19spo.mp3"
+    },
+    {
+        "title": "Aa Bhi Ja Sanam",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746177864/Prince_2010_-_Aa_Bhi_Ja_Sanam_hhri6r.mp3"
+    },
+    {
+        "title": "Darasal",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746177876/Raabta_-_Darasal_pz3ovq.mp3"
+    }
+  ]
 }

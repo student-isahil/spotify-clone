@@ -1,5 +1,21 @@
 
 {
     "title": "Sleep",
-    "description": "Songs for you"
+    "description": "Songs for you",
+    "cover":"https://res.cloudinary.com/darj9wemb/image/upload/v1746117222/cover_sqmgxn.jpg",
+    "songs": [
+    {
+        "title": "Daayre",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746117220/Daayre_xtojeb.mp3"
+    },
+    {
+        "title": "Tum Ho",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746177755/old_Rockstar-Tum_Ho_cpxssd.mp3"
+    },
+    {
+        "title": "Pee Loon",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746177764/OUATIM-Pee_Loon_s84wux.mp3"
+    }
+    
+  ]
 }

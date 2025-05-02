@@ -2,5 +2,20 @@
 
 {
     "title": "Just Chill",
-    "description": "Yes, Just Chill"
+    "description": "Yes, Just Chill",
+    "cover": "https://res.cloudinary.com/darj9wemb/image/upload/v1746117215/cover_iu8ffl.jpg",
+    "songs": [
+    {
+        "title": "Kaash Aisa Hota",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746117218/Kaash_Aisa_Hota_m4ybzf.mp3"
+    },
+    {
+        "title": "Pehla Nasha",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746117217/Pehla_Nasha_uxksrx.mp3"
+    },
+    {
+        "title": "Kaun Tujhe",
+      "url": "https://res.cloudinary.com/darj9wemb/video/upload/v1746177625/MSDhoni_-_Kaun_Tujhe_xgmrmc.mp3"
+    }
+  ]
 }
