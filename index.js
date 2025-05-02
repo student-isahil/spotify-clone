@@ -1,6 +1,8 @@
+
 let currentSong = new Audio();
 let songs;
 let currFolder;
+let currentSongIndex;
 
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
@@ -18,57 +20,53 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getSongs(folder) {
     currFolder = folder;
-    let a = await fetch(`http://192.168.31.161:3000/Spotify%20Clone/${folder}/`)
-    let response = await a.text();
-    let div = document.createElement("div")
-    div.innerHTML = response;
-    let as = div.getElementsByTagName("a")
-    songs = []
-    for (let i = 0; i < as.length; i++) {
-        const element = as[i];
-        if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split(`/${folder}/`)[1])
-        }
-    }
+    let a = await fetch(`https://student-isahil.github.io/spotify-clone/${folder}/info.json`)
+    let data = await a.json();
+
+    songs = data.songs;
 
     // Show all the songs in the playlist
     let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0]
     songUL.innerHTML = ""
     for (const song of songs) {
         songUL.innerHTML += `<li><img class="invert" width="34" src="assests/images/music.svg" alt="">
-                            <div class="info">
-                                <div> ${decodeURI(song)}</div>
-                            </div>
-                            <div class="playnow">
-                                <span>Play Now</span>
-                                <img class="invert" src="assests/images/play.svg" alt="">
-                            </div> </li>`;
+            <div class="info">
+                <div>${song.title}</div>
+            </div>
+            <div class="playnow">
+                <span>Play Now</span>
+                <img class="invert" src="assests/images/play.svg" alt="">
+            </div> </li>`;
     }
 
     // Attach an event listener to each song in the playlist
-    Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
-        e.addEventListener("click", element => {
-            playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
-        })
-    })
-
+    Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach((e, index) => {
+        e.addEventListener("click", () => {
+            playMusic(index); // Pass index of the clicked song
+        });
+    });
+    
     return songs
 }
 
-const playMusic = (track,pause = false) => {
-    currentSong.src = `/Spotify%20Clone/${currFolder}/` + track
+const playMusic = (index,pause = false) => {
+
+    currentSong.pause();
+    currentSongIndex = index;
+    currentSong.src = songs[index].url;
     if (!pause) {
         currentSong.play()
         play.src = "assests/images/pause.svg"
     }
-    document.querySelector(".songinfo").innerHTML = decodeURI(track)
+    document.querySelector(".songinfo").innerHTML = songs[index].title;
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00"
+
 }
 
 
 async function displayAlbums() 
 {
-    let a = await fetch(`http://192.168.31.161:3000/Spotify%20Clone/songs/`)
+    let a = await fetch("songs/")
     let response = await a.text();
     let div = document.createElement("div")
     div.innerHTML = response;
@@ -81,7 +79,7 @@ async function displayAlbums()
             let folder = e.href.split("/").slice(-2)[0]
             
             // Get the metadata of the folder
-            let a = await fetch(`http://192.168.31.161:3000/Spotify%20Clone/songs/${folder}/info.json`)
+            let a = await fetch(`https://student-isahil.github.io/spotify-clone/songs/${folder}/info.json`)
             let response = await a.json(); 
             cardContainer.innerHTML += ` <div data-folder="${folder}" class="card">
             <div class="play">
@@ -91,8 +89,8 @@ async function displayAlbums()
                         stroke-linejoin="round" />
                 </svg>
             </div>
-
-            <img src="/Spotify%20Clone/songs/${folder}/cover.jpg" alt="">
+           
+            <img src="${response.cover}" alt="">
             <h2>${response.title}</h2>
             <p>${response.description}</p>
         </div>`
@@ -103,7 +101,7 @@ async function displayAlbums()
     Array.from(document.getElementsByClassName("card")).forEach(e => { 
         e.addEventListener("click", async item => {
             songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`) 
-            playMusic(songs[0])
+            playMusic(0)
         })
     })
 }
@@ -111,7 +109,9 @@ async function displayAlbums()
 async function main() {
     // Get the list of all the songs
     await getSongs("songs/ncs")
-    playMusic(songs[0], true)
+    // playMusic(songs[0], true)
+
+    playMusic(0,true)
 
     // Display all the albums on the page
     await displayAlbums()
@@ -138,23 +138,23 @@ async function main() {
         }
     })
 
-    // Add an event listener to previous
-    previous.addEventListener("click", () => {
-    currentSong.pause()
-    let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
-    if ((index - 1) >= 0) {
-        playMusic(songs[index - 1])
-    }
-    })
 
-    // Add an event listener to next
-    next.addEventListener("click", () => {
-        currentSong.pause()
-        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
-        if ((index + 1) < songs.length) {
-            playMusic(songs[index + 1])
+    // Previous song
+    previous.addEventListener("click", () => {
+        if (currentSongIndex > 0) {
+            currentSong.pause();
+            playMusic(currentSongIndex - 1);
         }
-    })
+    });
+
+    // Next song
+    next.addEventListener("click", () => {
+        if (currentSongIndex < songs.length - 1) {
+            currentSong.pause();
+            console.log(currentSongIndex);
+            playMusic(currentSongIndex + 1);
+        }
+    });
 
     // Listen for timeupdate event
     currentSong.addEventListener("timeupdate", () => {
