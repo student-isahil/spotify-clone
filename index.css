@@ -234,7 +234,6 @@ body
     display: flex;
     justify-content: center;
     gap: 16px;
-    cursor: pointer;
 }
 .seekbar {
     height: 6px;
