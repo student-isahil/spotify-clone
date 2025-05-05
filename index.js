@@ -104,8 +104,13 @@ async function displayAlbums() {
 
 async function main() {
     // Get the list of all the songs
-    // await getSongs(" ")
-    // playMusic(0)
+
+    const foldersRes = await fetch("https://student-isahil.github.io/spotify-clone/info1.json");
+    const folders = await foldersRes.json();
+    if (folders.length > 0) {
+        await getSongs(`songs/${folders[0]}`);
+        playMusic(0,true);
+    }
 
     // Display all the albums on the page
     await displayAlbums()
@@ -241,5 +246,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 4500); // 3 seconds
 });
 
+
+  
 
 
