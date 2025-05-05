@@ -33,6 +33,20 @@ body
     font-weight: bold;
 }
 .close  {  display: none; }
+
+.search
+{
+    background-color: #16181c;
+    color: white;
+    padding: 6px;
+    padding-right: 50px;
+    border-radius: 50px;
+    border-style: none;
+    border: 0.5px solid gray;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 15px;
+}
 .library 
 {
     min-height: 82vh;
